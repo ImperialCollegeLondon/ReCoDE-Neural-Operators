@@ -51,7 +51,10 @@ __pypackages__/
 # Environments
 .env
 .venv
-.recode-venv
+.recode_venv
+
+# Datasets
+data/
 
 # mkdocs documentation
 /site
