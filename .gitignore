@@ -52,6 +52,7 @@ __pypackages__/
 .env
 .venv
 .recode_venv
+.recode-venv
 
 # Datasets
 data/
