@@ -18,6 +18,16 @@ jobs:
         run: pip install -r requirements.txt
       - name: Fix image embedding in notebooks
         run: python .github/workflows/utils/embed_images.py notebooks
+
+      - name: Link Checker
+        id: lychee
+        uses: lycheeverse/lychee-action@v2
+        with:
+            args: --verbose './**/*.md'
+            fail: True
+            
+      - name: Rewrite notebook links for docs
+        run: python .github/workflows/utils/rewrite_links.py notebooks
       - name: Copy notebooks into docs
         run: cp -r notebooks/* docs/ | echo "No notebooks found"
       - name: Deploy Mkdocs
