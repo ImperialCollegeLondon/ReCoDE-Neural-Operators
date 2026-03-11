@@ -16,6 +16,8 @@ jobs:
           python-version: 3.12
       - name: Install dependencies
         run: pip install -r requirements.txt
+      - name: Fix image embedding in notebooks
+        run: python .github/workflows/utils/embed_images.py notebooks
       - name: Copy notebooks into docs
         run: cp -r notebooks/* docs/ | echo "No notebooks found"
       - name: Deploy Mkdocs
